@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { GoogleAnalytics } from '@next/third-parties/google';
 import './globals.css';
 import { Header } from '@/components/layout/Header';
@@ -33,6 +33,23 @@ export const metadata: Metadata = {
     description: 'Free online calculators, converters, and tools. Get instant answers to the questions everyone asks.',
   },
   twitter: { card: 'summary_large_image' },
+  /**
+   * Icons: `icon.tsx` + `apple-icon.tsx` match the OA logo; explicit entry helps crawlers and link previews.
+   * Theme + manifest for mobile: see `viewport` and `manifest.ts`.
+   */
+  icons: {
+    icon: [{ url: '/icon', type: 'image/png', sizes: '32x32' }],
+    apple: [{ url: '/apple-icon', type: 'image/png', sizes: '180x180' }],
+  },
+  manifest: '/manifest.webmanifest',
+};
+
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f8fafc' },
+    { media: '(prefers-color-scheme: dark)', color: '#020617' },
+  ],
+  colorScheme: 'light dark',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

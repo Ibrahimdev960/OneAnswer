@@ -71,11 +71,18 @@ export function buildBreadcrumbListSchema(tool: Tool): Record<string, unknown> {
 }
 
 export function buildOrganizationSchema(): Record<string, unknown> {
+  const logoUrl = `${SITE_URL}/apple-icon`;
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'OneAnswer',
     url: SITE_URL,
+    logo: {
+      '@type': 'ImageObject',
+      url: logoUrl,
+      width: 180,
+      height: 180,
+    },
     description: 'Free instant-answer tools for everyone',
   };
 }
