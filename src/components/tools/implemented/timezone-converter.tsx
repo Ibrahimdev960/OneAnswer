@@ -144,7 +144,11 @@ const faqs = [
 
 export default function TimezoneConverterPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Convert time between any two timezones instantly, with automatic daylight saving time support. Also includes a live world clock showing current times in major cities. Perfect for scheduling international meetings and calls.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="Scheduling across time zones is the small headache behind every global call: someone says “nine AM Eastern,” someone else thinks in Pacific, and daylight saving flips a few weeks apart between regions. This timezone converter focuses on a pair of locations or offsets so you can line up a meeting or a deadline without a spreadsheet. Built-in world-clock snippets for major cities help you sanity-check the “what time is it in London or Tokyo right now” questions that show up in travel, customer support, and family chats. Searches for timezone converter, convert time zones, and time zone meeting planner come down to the same need—an honest offset that respects IANA rules where data allows. The interface stays compact so you are not wading through ads before you get a time pair. If you are booking life events, add calendar invites with both zones; this page gives you the numbers, your calendar app carries the follow-up. Remember that some regions skip DST entirely, so treat edge dates as a reason to re-check, not a corner to ignore."
+    >
       <TimezoneTool />
     </ToolWrapper>
   );

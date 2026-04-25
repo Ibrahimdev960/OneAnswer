@@ -106,7 +106,11 @@ const faqs = [
 
 export default function IPAddressPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Your public IP address is what websites and servers see when you connect to the internet. This tool instantly shows your IP address along with your approximate location, ISP, and timezone — all detected automatically.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="When you ask what is my IP address, you are usually looking for the public address your ISP assigns to your home or phone network—this is the number servers log when you open a page or use an app, not a private 192.168.x address on your Wi‑Fi. This page fetches that public IP and, where available, high-level context such as your approximate city region, provider name, and timezone, which is why find my IP and IP lookup point to the same need. The result helps with remote access setup, game hosting, whitelisting, or simply double-checking whether your VPN is active. We do not ask you to install software: the lookup runs in the browser with a small request to a data service, and we do not store your address for marketing. If you are on a corporate network, the address may be a shared exit node for many users. For strict anonymity, remember that an IP is only one part of a broader fingerprint, but for everyday troubleshooting it is the right first number to read."
+    >
       <IPTool />
     </ToolWrapper>
   );

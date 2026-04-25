@@ -122,7 +122,11 @@ const faqs = [
 
 export default function PasswordGeneratorPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Generate strong, cryptographically random passwords using your browser's secure random API. Customize length and character types, then copy with one click. Your passwords are never stored or transmitted.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="A strong password is long, unpredictable, and unique to each site—easy to say, harder to do without a generator. This password generator uses your browser’s built-in random source to assemble strings of letters, numbers, and symbols according to the rules you toggle, so you are not reusing a pet’s name with a one at the end. Searches for password generator, random password, and secure password usually mean the same pain: you need something that passes complexity rules and still fits in a password manager. The output never leaves this tab unless you copy it yourself, which means we are not saving secrets on a server. Adjust length for banking versus forums, include symbols only where a site allows them, and use the copy button to paste straight into a vault. If a site rejects a character, regenerate once—random means occasionally awkward symbols. Rotate when you hear of a breach, and treat this as one layer alongside two-factor authentication."
+    >
       <PasswordTool />
     </ToolWrapper>
   );

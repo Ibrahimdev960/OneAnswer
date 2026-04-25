@@ -62,7 +62,11 @@ const faqs = [
 
 export default function WeightConverterPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Convert weight between kilograms, pounds, grams, ounces, stone, and metric tons instantly. All results update as you type.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="Weight units shift with context—kitchen scales, gym plates, and shipping forms rarely agree. This converter links kilograms, pounds, stone, ounces, and grams in one pass so a recipe, a package label, or a health goal can be read in the unit you prefer. Searches for kg to lbs, pounds to kilograms, and weight converter are all requests for a fixed ratio between systems; we apply standard conversion factors and show enough precision for everyday use without pretending to be a legal-for-trade scale. If you are tracking health with a doctor, you might still use the same numbers on paper, but the mental load of converting after every weigh-in is what this page removes. Stone remains common in some regions; ounces split between mass and fluid context, so we label clearly to avoid the classic “which ounce?” mix-up. For freight or very large masses, use tonnes mindfully and confirm contracts in the base unit the carrier expects."
+    >
       <WeightTool />
     </ToolWrapper>
   );

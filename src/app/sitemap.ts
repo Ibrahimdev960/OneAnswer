@@ -1,28 +1,55 @@
+/**
+ * Next.js: `app/sitemap.ts` → `/sitemap.xml` (metadata route).
+ * Rebuilds from `TOOLS` + `CATEGORIES` so new tools in config appear automatically.
+ */
 import { MetadataRoute } from 'next';
 import { TOOLS, CATEGORIES } from '@/config/tools';
+import { SITE_URL } from '@/config/site';
 
-const BASE_URL = 'https://oneanswer.app';
+const HOME_PRIORITY = 1.0;
+const CATEGORY_PRIORITY = 0.6;
+const TOOL_PRIORITY_POPULAR = 0.9;
+const TOOL_PRIORITY_REGULAR = 0.7;
+const LEGAL_PAGE_PRIORITY = 0.3;
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const toolPages: MetadataRoute.Sitemap = TOOLS.map((tool) => ({
-    url: `${BASE_URL}/${tool.slug}`,
-    lastModified: new Date(),
-    changeFrequency: 'monthly',
-    priority: tool.popular ? 0.9 : 0.7,
-  }));
+  const now = new Date();
+
+  const home: MetadataRoute.Sitemap[number] = {
+    url: SITE_URL,
+    lastModified: now,
+    changeFrequency: 'daily',
+    priority: HOME_PRIORITY,
+  };
 
   const categoryPages: MetadataRoute.Sitemap = Object.keys(CATEGORIES).map((cat) => ({
-    url: `${BASE_URL}/category/${cat}`,
-    lastModified: new Date(),
+    url: `${SITE_URL}/category/${cat}`,
+    lastModified: now,
     changeFrequency: 'weekly',
-    priority: 0.6,
+    priority: CATEGORY_PRIORITY,
   }));
 
-  return [
-    { url: BASE_URL, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
-    { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-    { url: `${BASE_URL}/privacy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.2 },
-    ...categoryPages,
-    ...toolPages,
+  const toolPages: MetadataRoute.Sitemap = TOOLS.map((tool) => ({
+    url: `${SITE_URL}/${tool.slug}`,
+    lastModified: now,
+    changeFrequency: 'monthly' as const,
+    priority: tool.popular ? TOOL_PRIORITY_POPULAR : TOOL_PRIORITY_REGULAR,
+  }));
+
+  const aboutPrivacy: MetadataRoute.Sitemap = [
+    {
+      url: `${SITE_URL}/about`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: LEGAL_PAGE_PRIORITY,
+    },
+    {
+      url: `${SITE_URL}/privacy`,
+      lastModified: now,
+      changeFrequency: 'yearly',
+      priority: LEGAL_PAGE_PRIORITY,
+    },
   ];
+
+  return [home, ...categoryPages, ...toolPages, ...aboutPrivacy];
 }

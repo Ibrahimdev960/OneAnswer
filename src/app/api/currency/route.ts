@@ -27,7 +27,8 @@ export async function GET(request: Request) {
       rate,
       lastUpdated: data.time_last_update_utc,
     });
-  } catch (err: any) {
-    return NextResponse.json({ success: false, error: err.message || 'Failed to fetch exchange rate' }, { status: 500 });
+  } catch (err: unknown) {
+    const message = err instanceof Error ? err.message : 'Failed to fetch exchange rate';
+    return NextResponse.json({ success: false, error: message }, { status: 500 });
   }
 }

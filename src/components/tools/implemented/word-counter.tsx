@@ -67,7 +67,11 @@ const faqs = [
 
 export default function WordCounterPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Count words, characters, sentences, paragraphs, and estimate reading time instantly as you type. Perfect for essays, articles, tweets, resumes, and any writing project with a word limit.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="Word limits shape essays, ad copy, scholarship forms, and social posts—so a live word count is less about vanity than about fitting the box you are given. This word counter also tallies characters with and without spaces, plus sentences, paragraphs, and a rough reading time, because editors and platforms rarely ask for only one metric. Searches for word count, character counter, and how many words in my text are usually the same check before submit. Paste a draft, tweak a paragraph, and watch the totals change without exporting to another app. Because everything runs in the browser, your text is not uploaded for analysis; clear the box when you are done if you are working on something sensitive. Journalists, students, and support teams all land here for the same reason: quick feedback, plain numbers, and no sign-up between you and a deadline. For very large documents, performance may depend on your device, but for typical article lengths the tool stays responsive as you type."
+    >
       <WordCounterTool />
     </ToolWrapper>
   );

@@ -101,7 +101,11 @@ const faqs = [
 
 export default function DaysUntilPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Pick any future date and get a live countdown showing exactly how many days, hours, minutes, and seconds remain. Perfect for counting down to holidays, events, birthdays, or deadlines.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="A “days until” or countdown tool answers one question with precision: how much time is left before a date that matters to you. Pick a target day—holidays, a wedding, a project deadline, exam week, or a product launch—and you will see the gap broken into days, hours, minutes, and seconds so the scale matches how you think about the event. People often search how many days until Christmas, a birthday, or a public holiday; the math is the same: difference between now and the target, shown in friendly units. Presets on this page can speed up common cases, but you can always type any future date. The counter updates in real time in your browser, which makes it satisfying to watch for short-term countdowns, and it is light enough to leave open on a second screen. Use it for planning, motivation, or simply satisfying curiosity about the next long weekend—without installing an app."
+    >
       <DaysUntilTool />
     </ToolWrapper>
   );

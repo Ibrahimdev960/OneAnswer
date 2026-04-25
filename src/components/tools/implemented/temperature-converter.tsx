@@ -106,7 +106,11 @@ const faqs = [
 
 export default function TemperatureConverterPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Convert temperature between Celsius, Fahrenheit, and Kelvin instantly. Includes common reference temperatures and a comfort indicator.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="Temperature is one of the few units people still juggle in daily life—cooking, weather, and lab settings rarely speak the same language. This tool converts between Celsius, Fahrenheit, and Kelvin in both directions, so a recipe, a travel forecast, or a science question can be read in the scale you already think in. Searches for Celsius to Fahrenheit, fahrenheit to celsius, and temperature converter reflect the same underlying task: same physical heat, different numbers on the dial. Reference points like freezing and boiling, body temperature, and a comfortable room range appear inline so the converted value is not floating without context. Kelvin remains useful when you work from absolute zero upward in coursework or data. The converter updates as you type, which is handy when you are dialling a thermostat or double-checking a headline about record highs. It is a small utility, but getting the number right can save a ruined bake or a packing mistake."
+    >
       <TemperatureTool />
     </ToolWrapper>
   );

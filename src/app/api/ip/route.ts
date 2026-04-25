@@ -29,7 +29,7 @@ export async function GET(request: Request) {
         longitude: data.longitude,
       },
     });
-  } catch (err) {
+  } catch {
     return NextResponse.json({ success: false, error: 'Could not detect IP address' }, { status: 500 });
   }
 }

@@ -131,7 +131,11 @@ const faqs = [
 
 export default function BMIPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="BMI (Body Mass Index) is a measure of body fat based on height and weight. This calculator works for both metric (kg/cm) and imperial (lbs/inches) units and shows you which BMI category you fall into.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="Body mass index, or BMI, is a simple screening number that relates your weight to your height. Health professionals and public health guidelines still use it as a starting point when asking whether someone might be underweight, in a normal range, overweight, or in a higher-risk band—though it is not a diagnosis on its own. This BMI calculator supports both metric (kilograms and centimetres) and imperial (pounds and inches) so you can work in the units you already know. You will see your BMI value, the usual category labels, and short context that matches what people expect from a body mass index search. Athletes and very muscular people may read “overweight” even when body fat is low, so consider BMI alongside other signals if you are making health decisions, and talk to a clinician for personal advice. The interface stays minimal: type your numbers, get a clear result, and move on. Keywords like BMI calculator, healthy weight, and am I overweight are all pointing at the same idea—one number, clearly explained, without a wall of medical jargon."
+    >
       <BMITool />
     </ToolWrapper>
   );

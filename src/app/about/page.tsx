@@ -4,6 +4,8 @@ import Link from 'next/link';
 export const metadata: Metadata = {
   title: 'About OneAnswer',
   description: 'OneAnswer provides free, instant-answer tools for the questions everyone searches online.',
+  alternates: { canonical: '/about' },
+  openGraph: { url: '/about' },
 };
 
 export default function AboutPage() {

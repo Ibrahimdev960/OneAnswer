@@ -75,7 +75,11 @@ const faqs = [
 
 export default function PercentageCalculatorPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Calculate any percentage instantly — find X% of a number, determine what percentage one number is of another, or calculate the percentage change between two values. Perfect for discounts, grades, taxes, and data analysis.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="Percent math shows up in discounts, tips, school grades, tax rates, and year-over-year growth, yet many people still pause when a headline says “save twenty-five percent” or a dashboard shows a two-point move. This percentage calculator handles the common cases in one place: part-to-whole ratios, what is X percent of Y, and change between two values. Search terms like percent calculator, how to calculate percentage, and percentage change all sit on the same few formulas; the value here is a quick, readable layout so you are not re-deriving arithmetic on a napkin. Use it for sales comparisons, quick checks on data stories, or homework when you need the numbers but not a lecture. Results stay in your session until you leave the page, and the fields are labelled in plain language so you can return months later and still know which box means what. For finance or health decisions, pair your percentage with the original numbers—context still matters as much as the sign."
+    >
       <PercentageTool />
     </ToolWrapper>
   );

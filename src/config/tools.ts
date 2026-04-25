@@ -215,6 +215,44 @@ export function getRelatedTools(slug: string, category: ToolCategory, limit = 4)
   return TOOLS.filter((t) => t.slug !== slug && t.category === category).slice(0, limit);
 }
 
+/** Tools in other categories for cross-linking; prefers `popular` for stronger internal links. */
+export function getCrossCategoryTools(
+  slug: string,
+  category: ToolCategory,
+  limit = 4
+): Tool[] {
+  const other = TOOLS.filter((t) => t.slug !== slug && t.category !== category);
+  return other
+    .sort((a, b) => Number(!!b.popular) - Number(!!a.popular))
+    .slice(0, limit);
+}
+
+/**
+ * Up to `limit` related tools for the main “Related Tools” block: same category first,
+ * then other categories so the section can show 4 links when enough tools exist (SEO audit).
+ */
+export function getRelatedToolLinks(
+  slug: string,
+  category: ToolCategory,
+  limit = 4
+): Tool[] {
+  const same = getRelatedTools(slug, category, limit);
+  if (same.length >= limit) return same;
+  const seen = new Set<string>([slug, ...same.map((t) => t.slug)]);
+  const rest = TOOLS.filter((t) => t.slug !== slug && t.category !== category).sort(
+    (a, b) => Number(!!b.popular) - Number(!!a.popular)
+  );
+  const out = [...same];
+  for (const t of rest) {
+    if (out.length >= limit) break;
+    if (!seen.has(t.slug)) {
+      out.push(t);
+      seen.add(t.slug);
+    }
+  }
+  return out;
+}
+
 export function getPopularTools(): Tool[] {
   return TOOLS.filter((t) => t.popular);
 }

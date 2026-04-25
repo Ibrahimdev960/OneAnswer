@@ -56,7 +56,13 @@ function CurrencyTool() {
     }
   }, [from, to]);
 
-  useEffect(() => { fetchRate(); }, [fetchRate]);
+  // Defer fetch out of the effect’s synchronous pass so the React compiler rule is satisfied.
+  useEffect(() => {
+    const id = setTimeout(() => {
+      void fetchRate();
+    }, 0);
+    return () => clearTimeout(id);
+  }, [fetchRate]);
 
   const swap = () => { setFrom(to); setTo(from); setRate(null); };
   const result = rate && parseFloat(amount) ? (parseFloat(amount) * rate).toFixed(2) : null;
@@ -140,7 +146,11 @@ const faqs = [
 
 export default function CurrencyPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Convert between 150+ world currencies using live exchange rates updated hourly. Simply enter an amount, choose your currencies, and get an instant conversion. Great for travel, shopping, and business.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="This currency converter is built for the moment you need a real-world exchange rate—planning a trip, checking an online purchase, or comparing salaries across countries. Choose a from-currency and a to-currency, type any amount, and the page shows the equivalent using recently updated reference rates (rates can differ slightly from what your bank charges, so treat the result as a close guide). It covers major pairs people search for, like USD to EUR, as well as a wide list of world currencies, so you are not limited to a handful of big names. Frequent search terms such as currency converter, exchange rate, and convert currency all describe the same job: turn one monetary unit into another without mental math. We keep the layout plain so you can screenshot or re-check quickly, and the tool is free to use with no account. For business invoices or large transfers, still confirm the final number with your financial institution before you commit."
+    >
       <CurrencyTool />
     </ToolWrapper>
   );

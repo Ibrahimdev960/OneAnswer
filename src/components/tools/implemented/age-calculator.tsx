@@ -123,7 +123,8 @@ const faqs = [
   { q: 'What day of the week was I born?', a: 'This is determined using JavaScript\'s Date API which can accurately calculate the day of the week for any historical date.' },
 ];
 
-const explanation = 'This age calculator tells you exactly how old you are in years, months, days, hours, and even minutes. Simply enter your date of birth and get your precise age instantly. It also shows how many days until your next birthday and what day of the week you were born on.';
+const explanation =
+  'Use this age calculator when you need your exact age from date of birth—not just years, but months, days, hours, and minutes where it matters. Enter your birthday once and you get a clear breakdown that respects leap years and month lengths, which is why “how old am I” searches deserve more than a rough guess. The tool also shows how many days remain until your next birthday and which day of the week you were born, common questions people pair with age in days or “date of birth calculator” lookups. Parents checking kids’ ages, forms that ask for age in years and months, and curiosity about milestones all fit here. Everything runs in your browser: your birth date is not stored on our servers, so you can use it as a private date of birth calculator. Whether you say age calculator, how old am I, or count my age in days, the goal is the same—one place, instant results, and wording you can read at a glance.';
 
 export default function AgeCalculatorPage() {
   return (

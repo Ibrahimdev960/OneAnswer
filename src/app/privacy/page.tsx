@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Privacy Policy | OneAnswer',
   description: 'Privacy policy for OneAnswer — how we handle data, cookies, and advertising.',
+  alternates: { canonical: '/privacy' },
+  openGraph: { url: '/privacy' },
 };
 
 export default function PrivacyPage() {

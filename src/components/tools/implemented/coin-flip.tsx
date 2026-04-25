@@ -77,11 +77,16 @@ function CoinFlipTool() {
 const faqs = [
   { q: 'Is this coin flip truly random?', a: "Yes! This uses JavaScript's Math.random() function which generates a pseudorandom number. Each flip has an exactly 50% chance of heads or tails." },
   { q: 'Can I use this for making decisions?', a: 'Absolutely! Coin flips are a classic way to make quick decisions. The result is completely fair and unbiased.' },
+  { q: 'What do heads and tails represent?', a: "Heads and tails are the two possible outcomes of a fair coin. Many people assign 'yes' to one side and 'no' to the other before flipping—just decide your mapping first so the result is clear." },
 ];
 
 export default function CoinFlipPage() {
   return (
-    <ToolWrapper tool={tool} faqs={faqs} explanation="Flip a virtual coin online with true 50/50 randomness. Get heads or tails instantly. Track your flip history and see the running totals. Perfect for making decisions, settling debates, or game night.">
+    <ToolWrapper
+      tool={tool}
+      faqs={faqs}
+      explanation="A virtual coin flip gives you a fair, fast outcome when you need a random choice without carrying change. This online coin flip uses your browser’s random number generation so each spin is independent, with a true fifty-fifty split between heads and tails. Use it to settle who goes first, pick between two options, or add a little chance to board games and parties. The running counts and last-ten flips help you see that results balance out over many tries—helpful if you are demonstrating probability or just like tracking streaks. Nothing is sent to a server: the flip runs entirely on your device, so it is quick even on mobile. Whether you call it a coin toss, a heads-or-tails picker, or a simple random decider, you get an instant answer with one tap, no signup, and no clutter."
+    >
       <CoinFlipTool />
     </ToolWrapper>
   );
